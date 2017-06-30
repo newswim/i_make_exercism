@@ -15,22 +15,14 @@ var Bob = function() {};
  *
  */
 Bob.prototype.hey = function(phrase) {
-  if (phrase[phrase.length - 1] == '?') {
-    return 'Sure.'
-  } else if (/[A-Z]+[A-Z]/g.test(phrase)) {
+  if (phrase.toUpperCase() == phrase && phrase.match(/[A-Z]/)) {
     return 'Whoa, chill out!'
-  } else if (phrase == '') {
+  } else if (phrase.slice(-1) == '?') {
+    return 'Sure.'
+  } else if (phrase == '' || phrase.match(/\s+\s/)) {
     return 'Fine. Be that way!'
   }
   return 'Whatever.'
 };
 
 module.exports = Bob;
-
-
-
-
-
-
-
-// a b c d e f g h i j k l m n o p q r s t u v w x y z
